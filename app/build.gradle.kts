@@ -1,9 +1,9 @@
 plugins {
     id("java")
-    //id("checkstyle")
-    //id("io.freefair.lombok") version "8.6"
-    //id("com.github.ben-manes.versions") version "0.50.0"
-    //id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("checkstyle")
+    id("io.freefair.lombok") version "8.6"
+    id("com.github.ben-manes.versions") version "0.50.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     application
 }
 
@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+    implementation("info.picocli:picocli:4.7.6")
+    annotationProcessor("info.picocli:picocli-codegen:4.7.6")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
@@ -27,4 +29,8 @@ tasks.test {
     useJUnitPlatform()
 }
 
-//application { mainClass.set("io.hexlet.Application") }
+//compileJava {
+//    options.compilerArgs += ["-Aproject=${"hexlet.code"}/${$"App"}"]
+//}
+
+//application { mainClass.set("io.hexlet.App") }
