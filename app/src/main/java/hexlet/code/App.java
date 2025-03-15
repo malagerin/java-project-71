@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import jdk.jfr.Description;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -22,6 +23,12 @@ public class App implements Callable<Integer> {
 
     @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
     private boolean helpRequested = false;
+
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
+    private String format = "stylish";
+
+    @Parameters(index = "0", description = "path to first file") String filepath1;
+    @Parameters(index = "1", description = "path to second file") String filepath2;
 
     @Option(names = {"-V", "--version"}, description = "Print version information and exit.")
     private boolean versionRequested = false;
