@@ -36,7 +36,14 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         //Debug
-        System.out.println("h = " + helpRequested + "| V = " + versionRequested);
+        System.out.println("Flags used: h = " + helpRequested + " | V = " + versionRequested);
+
+        try {
+            //Differ.getData(filepath1);
+            Differ.generate(filepath1, filepath2);
+        } catch (Exception e) {
+            System.out.println("Fail: " + e.toString());
+        }
 
         return 0;
     }
